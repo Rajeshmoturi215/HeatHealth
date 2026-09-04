@@ -275,6 +275,14 @@ def current_metrics(weather):
 def root():
     return FileResponse("index.html")
 
+@app.get("/app.js")
+def app_js():
+    return FileResponse("app.js", media_type="application/javascript")
+
+@app.get("/style.css")
+def style_css():
+    return FileResponse("style.css", media_type="text/css")
+
 @app.get("/model-status")
 def model_status():
     return {"application_version":APP_VERSION,"health_model":load_health_model(),"thermal_methods":{"heat_index":"NOAA-style heat-index equation","wbgt":"Outdoor WBGT estimate using estimated wet-bulb and globe temperature","utci":"Human-thermal UTCI estimate; replace with official UTCI polynomial for production","htsi":"Composite decision-support index"},"operational_status":"PROTOTYPE_UNTIL_VALIDATED"}
