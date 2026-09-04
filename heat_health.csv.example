@@ -1,0 +1,2 @@
+date,location,temperature,humidity,wind,solar,htsi,vulnerability,hospital_admissions_rate,mortality_rate
+2026-05-01,Example Ward,38.2,68,9,620,62.1,71,0.0,0.0
