@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Query, HTTPException
+from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -272,7 +273,7 @@ def current_metrics(weather):
 
 @app.get("/")
 def root():
-    return {"name":"HeatHealthAI","status":"online","version":APP_VERSION,"endpoints":["/risk","/forecast","/hourly","/impact-forecast","/health-impact","/vulnerability","/hotspots","/action-plan","/emergency-priority","/interventions","/alerts/zone-population","/alerts/zone-dispatch","/alerts/send","/geocode","/reverse-geocode","/model-status","/health"]}
+    return FileResponse("index.html")
 
 @app.get("/model-status")
 def model_status():
